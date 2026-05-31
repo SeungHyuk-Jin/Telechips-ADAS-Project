@@ -179,7 +179,7 @@ FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
 ---
 
 ## 전체 시스템 하드웨어 구성 (보드 및 센서 연결)
-<img width="1080" height="1440" alt="Image" src="https://github.com/user-attachments/assets/3395d101-bbd9-4d99-bf47-0cf46c39d282" />
+<img width="720" height="960" alt="Image" src="https://github.com/user-attachments/assets/3395d101-bbd9-4d99-bf47-0cf46c39d282" />
 
 ---
 
