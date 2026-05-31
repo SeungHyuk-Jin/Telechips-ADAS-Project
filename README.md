@@ -8,3 +8,15 @@
 - 2차: Telechips 보드 기반 포팅 및 최적화
 
 ---
+
+#  1차 프로젝트 — STM32 + Raspberry Pi 기반 구현
+
+## 1. 유스케이스 시나리오
+<img width="985" height="388" alt="Image" src="https://github.com/user-attachments/assets/2528a05a-772f-4463-94e9-4839cc617c3a" />
+
+---
+
+## 2. 요구사항 정의
+<img width="1090" height="465" src="https://github.com/user-attachments/assets/593c3bc7-1fc3-4fc5-8737-0d059109f232" />
+
+---
