@@ -156,6 +156,7 @@ FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
 - 추론 결과 후처리 로직 개선을 통해 성능 안정화
 - 팀원과 협업하여 전체 파이프라인 성능 개선
 
+---
 
 ## 3. 실행 결과
 
@@ -168,10 +169,91 @@ FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
 ---
 
 ### 3-2. UFLD 딥러닝 기반 차선 인식
-<img width="810" height="390" src="https://github.com/user-attachments/assets/ccafcd57-7cd1-48c0-ad2c-39bd15068a08" />
-<img width="1476" height="826" alt="Image" src="https://github.com/user-attachments/assets/36c644e2-2b9c-4edd-a857-cd636ed4dbe7" />
+| 결과 1 | 결과 2 |
+|--------|--------|
+| <img src="https://github.com/user-attachments/assets/ccafcd57-7cd1-48c0-ad2c-39bd15068a08" width="450"> | <img src="https://github.com/user-attachments/assets/36c644e2-2b9c-4edd-a857-cd636ed4dbe7" width="450"> |
 
 - 1차 프로젝트에서의 opencv보다 FPS 4.6배 향상 및 정확도 개선
 - 전후처리 최적화로 FPS 30 -> 40으로 증가 및 전체 시스템 지연 시간 25% 개선
 
 ---
+
+## 전체 시스템 하드웨어 구성 (보드 및 센서 연결)
+<img width="1080" height="1440" alt="Image" src="https://github.com/user-attachments/assets/3395d101-bbd9-4d99-bf47-0cf46c39d282" />
+
+---
+
+## 추가적인 내용 
+
+- Raspberry Pi와 MCP2515 CAN 모듈을 사용하여 Linux SocketCAN 기반 CAN 통신 환경을 구성
+```
+cd /boot/firmware
+sudo gedit config.txt
+
+dtparam=spi=on
+dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
+
+sudo reboot
+
+# CAN 드라이버 로드
+sudo ip link set can0 up type can bitrate 500000
+
+# 상태 확인
+ifconfig can0
+
+sudo apt install can-utils
+
+ip -details link show can0
+
+# CAN 메시지 송신 테스트
+cansend can0 123#DEADBEEF
+
+# CAN 메시지 수신 테스트
+candump can0
+```
+<img width="602" height="370" alt="image" src="https://github.com/user-attachments/assets/6215498b-f468-4053-91b0-0f870f31424f" />
+
+
+- VCP-G 보드 RTOS 환경에서 Task Suspend/Resume 기능 부재로 인해 직접 기능을 추가 및 확장 구현
+
+관련 정리: Notion 문서
+https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link
+
+- W5500 기반 TCP 통신 구조 설계 및 SPI 기반 데이터 송수신 구현
+
+관련 정리: Notion 문서
+https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link
+
+- Wi-Fi 모듈
+
+관련 정리: Notion 문서
+https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link
+
+- 날씨 API 기반 실시간 기상 정보 수신
+
+관련 정리: Notion 문서
+https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link
+
+
+#  프로젝트 성과
+
+- 임베디드 시스템 설계 및 RTOS 기반 다중 Task 구조 구현 경험 확보
+- W5500 기반 Ethernet 통신 및 실시간 데이터 송수신 구조 설계
+- CAN 통신 및 차량 네트워크 데이터 처리 경험 확보
+- 영상 기반 차선 인식 및 전처리/후처리 최적화 (협업)
+- Wi-Fi 모듈을 활용한 외부 Weather API 연동 및 데이터 기반 기능 구현
+- 시스템 포팅 및 성능 최적화 경험 (STM32 → Telechips Board)
+- 센서 및 GPIO 기반 디바이스 드라이버 구현 경험
+
+---
+
+#  기술 스택
+
+- C/Python
+- RTOS(freeRTOS)
+- Embedded System
+- Linux
+- 딥러닝 기반 차선 인식
+- TCP/IP 통신
+- SPI 통신
+- Can 통신
