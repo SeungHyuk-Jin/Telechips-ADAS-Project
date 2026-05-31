@@ -20,3 +20,17 @@
 <img width="1090" height="465" src="https://github.com/user-attachments/assets/593c3bc7-1fc3-4fc5-8737-0d059109f232" />
 
 ---
+
+## 3. 시스템 아키텍처 (직접 개발 영역 표시)
+<img width="1058" height="498" src="https://github.com/user-attachments/assets/b823b7ef-0880-43d5-949d-f5e5d37a5ceb" />
+
+- 빨간 박스 영역 직접 구현
+- 센서 데이터 수집 및 처리 구조 설계
+- 시스템 간 데이터 흐름 구성
+
+---
+
+## 4. 데모 환경
+<img width="1026" height="465" src="https://github.com/user-attachments/assets/7f6f1c3c-b405-4f92-8b03-c440828151b2" />
+
+---
