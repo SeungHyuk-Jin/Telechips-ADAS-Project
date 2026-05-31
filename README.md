@@ -25,7 +25,7 @@
 <img width="1322" height="741" alt="Image" src="https://github.com/user-attachments/assets/4bf97ada-7169-4e8f-9cd1-723bd596cc27" />
 
 - STM32 기반 FreeRTOS를 이용한 중앙 ECU 제어 구조 설계
-- ADAS 기능(LKA, SCC, MCB)의 실시간 제어 로직 구현
+- ADAS 기능(SCC, LFA, MCB)의 실시간 제어 로직 구현
 - 센서 데이터 처리 및 차량 제어 흐름 구성
 - CAN 통신 기반 차량 네트워크 일부 구현
 
@@ -85,7 +85,7 @@ SCC, LFA, MCB 기능을 Task 단위로 분리하여 실시간 제어가 가능�
 
 ## 7. 실행 결과
 
-### 6-1. Smart Cruise Control (SCC)
+### 7-1. Smart Cruise Control (SCC)
 
 | 결과 1 | 결과 2 |
 |--------|--------|
@@ -94,7 +94,7 @@ SCC, LFA, MCB 기능을 Task 단위로 분리하여 실시간 제어가 가능�
 
 ---
 
-### 6-2. Lane Following Assist (LFA)
+### 7-2. Lane Following Assist (LFA)
 
 | 결과 |
 |------|
@@ -103,9 +103,75 @@ SCC, LFA, MCB 기능을 Task 단위로 분리하여 실시간 제어가 가능�
 
 ---
 
-### 6-3. Multi-Collision Brake (MCB)
+### 7-3. Multi-Collision Brake (MCB)
 
 | 결과 1 | 결과 2 |
 |--------|--------|
 | <img src="https://github.com/user-attachments/assets/ce83d6e5-bbb0-4f07-abbc-61d5d16cb920" width="450"> | <img src="https://github.com/user-attachments/assets/5429fd8a-4736-4561-99bd-6bb3c1767956" width="450"> |
 | 충돌 상황 판단 및 제동 제어 동작 확인 | 긴급 제동 로직 동작 확인 |
+
+
+#  2차 프로젝트 — Telechips  보드 포팅 및 최적화
+
+1차 STM32 기반 시스템을 Telechips 차량용 플랫폼으로 포팅하고  
+FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
+
+---
+
+## 1. 시스템 아키텍처 (직접 개발 영역 표시)
+<img width="1475" height="830" alt="Image" src="https://github.com/user-attachments/assets/79bcac5f-ff45-4773-8818-c4f9347a073f" />
+
+- W5500 기반 Ethernet 통신 구조 설계 및 적용
+- VCP-G 보드에서 RTOS 기반 시스템 최적화
+- 센서 데이터 및 제어 신호의 실시간 전송 구조 구현
+
+---
+
+## 2. 세부 개발 내용
+
+### 2-1. W5500 기반 이더넷 통신 시스템
+- W5500 Ethernet 모듈을 활용한 TCP 통신 구조 구현
+- VCP-G 보드에서 센서 데이터 및 제어 신호 송수신 처리
+- 실시간 데이터 전송 구조 적용
+
+---
+
+### 2-2. RTOS 기반 시스템 구조 최적화
+- FreeRTOS 기반 태스크 구조로 시스템 재구성
+- 센서, 통신, 제어 로직을 Task 단위로 분리
+- 실시간 처리 성능 및 시스템 안정성 개선
+
+---
+
+### 2-3. 날씨 API 기반 안전 알림 기능
+- Wi-Fi 모듈을 이용한 네트워크 통신 환경 구성
+- Weather API를 통해 실시간 기상 정보 수신
+- 기상 데이터 기반 안전 운행 알림 로직 구현
+
+---
+
+### 2-4. UFLD 기반 차선 인식 최적화 (협업)
+- UFLD 딥러닝 모델 기반 차선 인식 시스템에서 전/후처리 최적화 작업 수행
+- 실시간 처리를 위한 입력 데이터 전처리 경량화
+- 추론 결과 후처리 로직 개선을 통해 성능 안정화
+- 팀원과 협업하여 전체 파이프라인 성능 개선
+
+
+## 3. 실행 결과
+
+### 3-1. SCC 안전거리 날씨 API 사용
+| 결과 1 | 결과 2 |
+|--------|--------|
+| <img src="https://github.com/user-attachments/assets/4361772b-9e89-4fb7-9365-3df7273bfa61" width="450"> | <img src="https://github.com/user-attachments/assets/047315ca-14ed-41dc-9e36-bed9168e5f4e" width="450"> |
+| 날씨에 따른 안전거리 단계 설정 경고 | 전방 거리 기반 속도 제어 동작 확인 |
+
+---
+
+### 3-2. UFLD 딥러닝 기반 차선 인식
+<img width="810" height="390" src="https://github.com/user-attachments/assets/ccafcd57-7cd1-48c0-ad2c-39bd15068a08" />
+<img width="1476" height="826" alt="Image" src="https://github.com/user-attachments/assets/36c644e2-2b9c-4edd-a857-cd636ed4dbe7" />
+
+- 1차 프로젝트에서의 opencv보다 FPS 4.6배 향상 및 정확도 개선
+- 전후처리 최적화로 FPS 30 -> 40으로 증가 및 전체 시스템 지연 시간 25% 개선
+
+---
