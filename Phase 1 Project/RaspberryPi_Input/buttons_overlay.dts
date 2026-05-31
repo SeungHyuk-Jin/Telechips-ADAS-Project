@@ -1,0 +1,34 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            my_buttons {
+                compatible = "my,buttons";
+                button1-gpios = <&gpio 5 0>;  // GPIO5
+                button2-gpios = <&gpio 6 0>;  // GPIO6
+                button3-gpios = <&gpio 26 0>; // GPIO26
+                button4-gpios = <&gpio 16 0>; // GPIO16
+
+                pinctrl-names = "default";
+                pinctrl-0 = <&buttons_pins>;
+                status = "okay";
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&gpio>;
+        __overlay__ {
+            buttons_pins: buttons_pins {
+                brcm,pins = <5 6 26 16>;
+                brcm,function = <0 0 0 0>; // input
+                brcm,pull = <2 2 2 2>;     // pull-up
+            };
+        };
+    };
+};
