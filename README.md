@@ -6,8 +6,35 @@
 - Raspberry Pi: 영상 처리 및 상위 제어 로직 수행
 ---
 - 2차: Telechips 보드 기반 포팅 및 최적화
+---
+
+# 📌 목차
+
+## 1차 프로젝트 — STM32 + Raspberry Pi 기반 구현
+- [1. 유스케이스 시나리오](#1-유스케이스-시나리오)
+- [2. 요구사항 정의](#2-요구사항-정의)
+- [3. 시스템 아키텍처](#3-시스템-아키텍처-직접-개발-영역-표시)
+- [4. 데모 환경](#4-데모-환경)
+- [5. 세부 개발 내용](#5-세부-개발-내용)
+- [6. 시스템 동작 플로우차트](#6-시스템-동작-플로우차트)
+- [7. 실행 결과](#7-실행-결과)
+
+## 2차 프로젝트 — Telechips 보드 포팅 및 최적화
+- [1. 시스템 아키텍처](#1-시스템-아키텍처-직접-개발-영역-표시-1)
+- [2. 세부 개발 내용](#2-세부-개발-내용)
+- [3. 실행 결과](#3-실행-결과)
+- [전체 시스템 하드웨어 구성](#전체-시스템-하드웨어-구성-보드-및-센서-연결)
+
+## 추가 내용
+- [CAN 통신 환경 구성](#추가적인-내용-can-통신-환경-구성)
+- [임베디드 시스템 확장 및 통신 모듈](#추가적인-내용-임베디드-시스템-확장-및-통신-모듈-구현)
+
+## 기타
+- [프로젝트 성과](#프로젝트-성과)
+- [기술 스택](#기술-스택)
 
 ---
+
 
 #  1차 프로젝트 — STM32 + Raspberry Pi 기반 구현
 
@@ -217,38 +244,17 @@ candump can0
 
 ## 추가적인 내용 (임베디드 시스템 확장 및 통신 모듈 구현)
 
-- VCP-G 보드 RTOS 환경에서 Task Suspend/Resume 기능 부재로 인해 직접 기능을 추가 및 확장 구현
-
-  관련 정리: Notion 문서
-  https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link
-
-- W5500 기반 TCP 통신 구조 설계 및 SPI 기반 데이터 송수신 구현
-
-  관련 정리: Notion 문서
-  https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link
-
-- Wi-Fi 모듈
-
-  관련 정리: Notion 문서
-  https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link
-
-- 날씨 API 기반 실시간 기상 정보 수신
-
-  관련 정리: Notion 문서
-  https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link
-
-
 - VCP-G 보드 RTOS 환경에서 Task Suspend/Resume 기능 부재로 인해 직접 기능을 추가 및 확장 구현  
-    [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link)
+    👉 [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link)
 
 - W5500 기반 TCP 통신 구조 설계 및 SPI 기반 데이터 송수신 구현  
-    [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link)
+    👉 [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link)
 
 - Wi-Fi 모듈  
-    [Notion 문서](https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link)
+    👉 [Notion 문서](https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link)
 
 - 날씨 API 기반 실시간 기상 정보 수신  
-    [Notion 문서](https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link)
+    👉 [Notion 문서](https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link)
 
 #  프로젝트 성과
 
