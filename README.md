@@ -238,6 +238,18 @@ candump can0
   https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link
 
 
+- VCP-G 보드 RTOS 환경에서 Task Suspend/Resume 기능 부재로 인해 직접 기능을 추가 및 확장 구현  
+    [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link)
+
+- W5500 기반 TCP 통신 구조 설계 및 SPI 기반 데이터 송수신 구현  
+    [Notion 문서](https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link)
+
+- Wi-Fi 모듈  
+    [Notion 문서](https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link)
+
+- 날씨 API 기반 실시간 기상 정보 수신  
+    [Notion 문서](https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link)
+
 #  프로젝트 성과
 
 - 임베디드 시스템 설계 및 RTOS 기반 다중 Task 구조 구현 경험 확보
