@@ -183,7 +183,7 @@ FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
 
 ---
 
-## 추가적인 내용 
+## 추가적인 내용 (CAN 통신 환경 구성)
 
 - Raspberry Pi와 MCP2515 CAN 모듈을 사용하여 Linux SocketCAN 기반 CAN 통신 환경을 구성
 ```
@@ -213,26 +213,29 @@ candump can0
 ```
 <img width="602" height="370" alt="image" src="https://github.com/user-attachments/assets/6215498b-f468-4053-91b0-0f870f31424f" />
 
+---
+
+## 추가적인 내용 (임베디드 시스템 확장 및 통신 모듈 구현)
 
 - VCP-G 보드 RTOS 환경에서 Task Suspend/Resume 기능 부재로 인해 직접 기능을 추가 및 확장 구현
 
-관련 정리: Notion 문서
-https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link
+  관련 정리: Notion 문서
+  https://app.notion.com/p/TOPST-VCP-G-SAL-256697796dab81228e7fd7e2e3d155fd?source=copy_link
 
 - W5500 기반 TCP 통신 구조 설계 및 SPI 기반 데이터 송수신 구현
 
-관련 정리: Notion 문서
-https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link
+  관련 정리: Notion 문서
+  https://app.notion.com/p/TOPST-VCP-G-W5500-256697796dab81acbae6fe6c3aa2043b?source=copy_link
 
 - Wi-Fi 모듈
 
-관련 정리: Notion 문서
-https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link
+  관련 정리: Notion 문서
+  https://app.notion.com/p/TOPST-D3-wifi-256697796dab811cb3dbdedd1ecfcebd?source=copy_link
 
 - 날씨 API 기반 실시간 기상 정보 수신
 
-관련 정리: Notion 문서
-https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link
+  관련 정리: Notion 문서
+  https://app.notion.com/p/TOPST-D3-P-API-256697796dab813f9152c844c502f1c2?source=copy_link
 
 
 #  프로젝트 성과
