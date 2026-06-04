@@ -44,7 +44,16 @@
 ---
 
 ## 2. 요구사항 정의
-<img width="1090" height="465" src="https://github.com/user-attachments/assets/593c3bc7-1fc3-4fc5-8737-0d059109f232" />
+<img width="1347" height="755" alt="Image" src="https://github.com/user-attachments/assets/9df83112-b022-49bd-b710-ed8aa4e82a8e" />
+
+---
+
+## 2-1. 테스트케이스
+| 단위 테스트 (Unit Test) | 통합 테스트 (Integration Test) | 시스템 테스트 (System Test) |
+|:---:|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/21b352dd-e966-42ac-bf66-3ba38a00e97c" width="300"> | <img src="https://github.com/user-attachments/assets/0316a5ac-07e8-494c-bf96-8b43f2fa1ad3" width="300"> | <img src="https://github.com/user-attachments/assets/ee98d3b8-af8f-4ffa-acc3-118b3d523f8a" width="300"> |
+| 기능 단위 검증 | 모듈 간 연동 검증 | 전체 시스템 검증 |
+
 
 ---
 
@@ -81,9 +90,9 @@ SCC, LFA, MCB 기능을 Task 단위로 분리하여 실시간 제어가 가능�
 - 전방 거리 기반 속도 제어 로직 구현
 - 안전 거리 유지 로직 설계 ( timegap 사용 )
 
-#### LKA (차선 유지 보조)
-- 차선 편차 기반 조향 제어 로직 구현
-- 차량 중심 유지 알고리즘 설계
+#### LFA (차선 유지 보조)
+- 차량의 차로 중앙 유지 기능 설계
+- 차선 중심 오프셋 계산 및 조향 제어 구현
 
 #### MCB (충돌 방지 제동)
 - 충돌 상황 판단 기반 제동 로직 구현
@@ -151,6 +160,14 @@ FreeRTOS 기반 구조로 재구성하여 실시간 성능 개선
 - W5500 기반 Ethernet 통신 구조 설계 및 적용
 - VCP-G 보드에서 RTOS 기반 시스템 최적화
 - 센서 데이터 및 제어 신호의 실시간 전송 구조 구현
+
+---
+
+## 1-1. 2차 테스트케이스
+| 단위 테스트 (Unit Test) | 통합 테스트 (Integration Test) | 시스템 테스트 (System Test) |
+|:---:|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/9769789a-add2-4e9e-9ddf-a6ec1300848e" width="300"> | <img src="https://github.com/user-attachments/assets/57c9da99-b8c3-44e0-81ba-7915b03462ff" width="300"> | <img src="https://github.com/user-attachments/assets/3e674137-9193-4c47-90de-f481ef151485" width="300"> |
+| 기능 단위 검증 | 모듈 간 연동 검증 | 전체 시스템 검증 |
 
 ---
 
